@@ -3,8 +3,8 @@
 import { apiFetch } from "@/utils/api";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import MyNotes from "@/components/profile/MyNotes";
-import Management from "@/components/profile/Management";
+import MyNotes from "@/components/profile/mynotes";
+import Management from "@/components/profile/management";
 
 type Preference = { tagId: number; name: string; aiRecommended: boolean };
 
