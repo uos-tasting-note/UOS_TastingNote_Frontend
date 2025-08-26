@@ -3,14 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useOnboarding } from "@/context/OnboardingContext";
-
+type PrefillUser = {
+  kakaoId: number;
+  kakaoNickname: string;
+  profileImageUrl: string;
+};
 export default function OnboardingForm() {
   const router = useRouter();
   const { setForm, setFile } = useOnboarding();
 
   const [nickname, setNickname] = useState("");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [prefill, setPrefill] = useState<any>(null);
+  const [prefill, setPrefill] = useState<PrefillUser | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -33,7 +37,7 @@ export default function OnboardingForm() {
   };
 
   const handleNext = () => {
-    if (!nickname.trim()) return;
+    if (!nickname.trim() || !prefill) return;
     setForm({
       kakaoId: prefill.kakaoId,
       kakaoNickname: prefill.kakaoNickname,

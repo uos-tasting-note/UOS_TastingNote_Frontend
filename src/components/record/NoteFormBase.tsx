@@ -17,8 +17,8 @@ export default function NoteFormBase({
   // 공통 상태
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [values, setValuesState] = useState<Record<string, any>>({});
-  const setValues = (k: string, v: any) =>
+  const [values, setValuesState] = useState<Record<string, string>>({});
+  const setValues = (k: string, v: string) =>
     setValuesState((prev) => ({ ...prev, [k]: v }));
 
   const [flavors, setFlavors] = useState(
@@ -121,7 +121,7 @@ export default function NoteFormBase({
   };
 
   return (
-    <div className="w-full max-w-screen h-full p-5 space-y-6">
+    <div className="w-full max-w-screen h-full p-5 space-y-6 bg-gray-300">
       {/* 사진 업로드 */}
       <div className="flex flex-col items-center">
         <label

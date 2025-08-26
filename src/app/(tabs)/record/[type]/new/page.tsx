@@ -22,5 +22,5 @@ export default function NewNotePage() {
     return <div className="p-6">지원하지 않는 타입: {rawType}</div>;
   }
 
-  return <NoteFormBase sub={sub} type={type as any} />;
+  return <NoteFormBase sub={sub} type={type as string} />;
 }
